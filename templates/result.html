@@ -12,9 +12,13 @@
         <section class="ress">
             <ul>
                 {%for i in links%}
-                    <li><ion-icon style="font-size: 4vh" name="chevron-forward-outline"></ion-icon> {{i}}</li>
+                    <li id="a"><ion-icon style="font-size: 4vh" name="chevron-forward-outline"></ion-icon> {{i}}</li>
                 {%endfor%}
             </ul>
         </section>
+        <button onclick="copyToClipBoard()">copy</button>
+
+        <script src="../static/JavaScript/helpme.js"></script>
     </body>
+
 </html>
