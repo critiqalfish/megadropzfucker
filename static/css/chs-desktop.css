@@ -1,0 +1,108 @@
+
+
+body{
+    background: linear-gradient(145deg, rgb(80 181 178), rgb(81 56 128));
+    font-family: Arial;
+    color: white;
+    overflow: hidden;
+    animation: gradient 30s ease infinite;
+    background-size: 400% 400%;
+}
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+#box{
+    margin: 30vh auto 0vh;
+
+
+}
+#ueber{
+    text-align: center;
+    text-shadow: black 5px 5px 5px;
+    font-size: 60px;
+}
+#porn{
+    text-align: center;
+    margin-bottom: 1vh;
+}
+#porn input{
+    border: black 3px solid;
+    border-radius: 5px;
+    width: 350px;
+    height: 17px;
+}
+#bts{
+    text-align: center;
+}
+#bts button{
+    border: black 3px solid;
+    border-radius: 5px;
+    height: 30px;
+    width: 100px;
+    font-size: 15px ;
+    font-min-size: 1px;
+    box-shadow: black 0px 4px ;
+}
+#bts button:active{
+    box-shadow: #252525 0px 10px ;
+}
+.credit{
+
+    box-shadow: 3px 3px 10px black;
+    width: 170px;
+    height: 60px;
+    background: #121212;
+    margin-left: 0px;
+    color: white;
+    font-size: 27px;
+    text-align: center;
+
+}
+
+#box2 {
+
+    margin: 2vh auto 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+
+}
+#box2 a{
+
+    vertical-align: middle;
+}
+#box2 img{
+    width: 80px;
+    border-radius: 50%;
+    display: inline;
+    margin-right: 12px;
+
+}
+#box2 h2 {
+    display: inline;
+    color: white;
+    font-family: "Arial Black";
+    font-size: 45px;
+    margin-bottom:50px;
+
+
+}
+
+
+
+#boxlast{
+    
+    margin: 30vh auto 0vh;
+    height: 150px;
+    width: 200px;
+}

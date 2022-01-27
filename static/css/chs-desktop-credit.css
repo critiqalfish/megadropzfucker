@@ -1,0 +1,69 @@
+body{
+    background: linear-gradient(145deg, rgb(80 181 178), rgb(81 56 128));
+    overflow: hidden;
+    font-family: Arial;
+    color: white;
+    font-size: 23px;
+    text-shadow: black 2px 2px 3px;
+    animation: gradient 30s ease infinite;
+    background-size: 400% 400%;
+}
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+.table img  {
+    width: 18vh;
+    border-radius: 25px;
+}
+#coffee{
+    font-size: 30px;
+}
+.links{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+
+}
+#cred{
+    height:  900px;
+    margin-top: auto;
+}
+.links a{
+    color: black;
+    font-size: 45px;
+
+}
+#hustensaft{
+    font-size: 30px;
+}
+.links ion-icon{
+    color: black;
+    font-size: 45px;
+}
+.links button{
+    background: transparent;
+    border: transparent;
+}
+.bakc{
+    height: 50px;
+    width: 100px;
+    background: transparent;
+    border: transparent;
+
+}
+.bakc a{
+    font-size: 50px;
+    text-underline: none;
+    color: black;
+
+
+}
