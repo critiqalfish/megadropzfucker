@@ -1,0 +1,36 @@
+
+body{
+    background: linear-gradient(145deg, rgb(80 181 178), rgb(81 56 128));
+    overflow: hidden;
+    animation: gradient 30s ease infinite;
+    background-size: 400% 400%;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+.ress{
+    height: 40vh;
+    padding-left: 5vh;
+}
+.ress ul{
+    margin: 5vh auto;
+    text-align: left;
+    list-style: none;
+}
+.ress ul li{
+    text-shadow: black 5px 5px 7px;
+    font-size: 6vh;
+
+}
+
+
+
