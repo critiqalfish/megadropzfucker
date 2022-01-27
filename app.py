@@ -46,5 +46,5 @@ def main():
     return flask.render_template('index.html')
 
 if __name__ == '__main__':
-    #app.run('127.0.0.1', debug=True)
-    waitress.serve(app, host='0.0.0.0', port=7997)
+    app.run('127.0.0.1', debug=True)
+    #waitress.serve(app, host='0.0.0.0', port=7997)
