@@ -25,11 +25,10 @@ def main():
             if dlinks == []:
                 try:
                     olinks = megadropzfucker.link(ilink)
-                    print('PULLED FROM NET: ', olinks)
                     for link in olinks:
                         cursor.execute("INSERT OR IGNORE INTO links VALUES (?, ?)", (ilink, link))
                     db.commit()
-                    print('ADDED TO DB: ', olinks)
+                    print('PULLED FROM NET AND ADDED TO DB: ', olinks)
                 except megadropzfucker.Error as e:
                     print('[ERROR]: ', e)
                     return flask.render_template('error.html', error=e)

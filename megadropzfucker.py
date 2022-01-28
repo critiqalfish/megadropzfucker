@@ -43,7 +43,6 @@ def link(link0, proxy=False):
     except: raise RequestError()
     if not 'msg' in bypassed_link and bypassed_link['success']: pass
     elif not bypassed_link['success']: raise InvalidLinkError()
-    print(bypassed_link['destination'])
     if proxy:
         try: scraped_pastebin = requests.get(bypassed_link['destination'], proxies={'http': config['KEYS']['proxykey'], 'https': config['KEYS']['proxykey']}).text
         except: raise RequestError()
