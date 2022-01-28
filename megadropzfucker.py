@@ -1,5 +1,9 @@
 import requests
 import timeit
+from configparser import ConfigParser
+
+config = ConfigParser()
+config.read('config.ini')
 
 class Error(Exception):
     pass
@@ -41,10 +45,10 @@ def link(link0, proxy=False):
     elif not bypassed_link['success']: raise InvalidLinkError()
     print(bypassed_link['destination'])
     if proxy:
-        try: scraped_pastebin = requests.get(bypassed_link['destination'], proxies={'http': 'http://customer-5F4SU4D4GZ-cc-RU:164227LSSR@pr.proxy.onlinesim.ru:7777', 'https': 'http://customer-5F4SU4D4GZ-cc-RU:164227LSSR@pr.proxy.onlinesim.ru:7777'}).text
+        try: scraped_pastebin = requests.get(bypassed_link['destination'], proxies={'http': config['KEYS']['proxykey'], 'https': config['KEYS']['proxykey']}).text
         except: raise RequestError()
     elif not proxy:
-        try: scraped_pastebin = requests.get(f"http://api.scraperapi.com?api_key=c665572ee042a836770340e6f54ab055&url={bypassed_link['destination']}").text
+        try: scraped_pastebin = requests.get(f"http://api.scraperapi.com?api_key={config['KEYS']['apikey']}&url={bypassed_link['destination']}").text
         except: raise RequestError()
     try: extracted_link = scraped_pastebin[scraped_pastebin.index('<textarea class="textarea">')+len('<textarea class="textarea">'):scraped_pastebin.index('</textarea>')]
     except: raise LinkNotFoundError()
