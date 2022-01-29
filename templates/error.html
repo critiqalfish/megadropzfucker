@@ -3,12 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <title>Error Page</title>
-  <link rel="stylesheet" href="static/css/chs-desktop-errorpage.css">
+  <link rel="stylesheet" href="/static/css/chs-desktop-errorpage.css">
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </head>
   <body>
+
     <header class="error">
       <h1>Error: {{error}}</h1>
-      <p>Roll back the time before I was here</p>
+
+      <form method="POST">
+        <button class="btn" value="BACK" name="back"><p>Roll back the time before I was here </p><ion-icon name="time-outline"></ion-icon> </button>
+      </form>
     </header>
+
   </body>
 </html>
