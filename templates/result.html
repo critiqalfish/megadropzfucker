@@ -9,11 +9,14 @@
         <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     </head>
     <body>
+        <div class="back">
+            <a href="index.html"><button class="btn"><ion-icon  name="home-outline"></ion-icon></button></a>
+        </div>
         <section class="ress">
             <ul>
                 {%for i in links%}
-                    <li id="{{i}}"><ion-icon style="font-size: 4vh" name="chevron-forward-outline"></ion-icon><a href="{{i}}"> {{i}}</a></li>
-                    <button onclick="copyToClipBoard('{{i}}')">copy</button>
+                    <li id="{{i}}"><ion-icon style="font-size: 4vh" name="chevron-forward-outline"></ion-icon><a href="{{i}}"> {{i}}</a><button class="btn" onclick="copyToClipBoard('{{i}}')"><ion-icon class="icone" name="clipboard-outline"></ion-icon></button></li>
+
                 {%endfor%}
             </ul>
         </section>

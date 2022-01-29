@@ -31,6 +31,17 @@ body{
     font-size: 6vh;
 
 }
-
-
+.back{
+    margin: 2vh;
+}
+.back button ion-icon{
+    font-size: 5vh;
+}
+.btn {
+    background: transparent;
+    border: transparent;
+}
+.icone{
+    font-size: 5vh;
+}
 
