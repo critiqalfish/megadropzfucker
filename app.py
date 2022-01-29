@@ -15,6 +15,8 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS links (
 cursor.execute("CREATE UNIQUE INDEX IF NOT EXISTS xlink ON links (olink)")
 db.commit()
 
+avg_time = [0]
+
 @app.route('/', methods=['GET', 'POST'])
 def main():
     if flask.request.method == 'POST':
@@ -25,10 +27,14 @@ def main():
                 dlinks = cursor.fetchall()
             if dlinks == []:
                 try:
-                    time_before = int(time.time())
+                    tb = int(time.time())
                     olinks = megadropzfucker.link(ilink)
-                    time_after = int(time.time())
-                    timed = time_after - time_before
+                    timed = int(time.time()) - tb
+                    if len(avg_time) <= 10:
+                        avg_time.append(timed)
+                    else:
+                        avg_time.pop(0)
+                        avg_time.append(timed)
                     for link in olinks:
                         cursor.execute("INSERT OR IGNORE INTO links VALUES (?, ?)", (ilink, link))
                     db.commit()
@@ -45,8 +51,9 @@ def main():
         elif flask.request.form.get('credits') == 'CREDITS':
             return flask.render_template('credits.html')
         elif flask.request.form.get('back') == 'BACK':
-            return flask.render_template('index.html')
-    return flask.render_template('index.html')
+            return flask.render_template('index.html', avgt=sum(avg_time) / len(avg_time))
+    elif flask.request.method == 'GET':
+        return flask.render_template('index.html', avgt=sum(avg_time) / len(avg_time))
 
 if __name__ == '__main__':
     app.run('127.0.0.1', debug=True)
