@@ -16,6 +16,8 @@ cursor.execute("CREATE UNIQUE INDEX IF NOT EXISTS xlink ON links (olink)")
 db.commit()
 
 avg_time = [0]
+cursor.execute("SELECT ilink FROM links")
+dblinks = len(list(set(cursor.fetchall())))
 
 @app.route('/', methods=['GET', 'POST'])
 def main():
@@ -39,6 +41,9 @@ def main():
                         cursor.execute("INSERT OR IGNORE INTO links VALUES (?, ?)", (ilink, link))
                     db.commit()
                     print('PULLED FROM NET AND ADDED TO DB: ', olinks)
+                    global dblinks
+                    cursor.execute("SELECT ilink FROM links")
+                    dblinks = len(list(set(cursor.fetchall())))
                 except megadropzfucker.Error as e:
                     print('[ERROR]: ', e)
                     return flask.render_template('error.html', error=e)
@@ -51,13 +56,9 @@ def main():
         elif flask.request.form.get('credits') == 'CREDITS':
             return flask.render_template('credits.html')
         elif flask.request.form.get('back') == 'BACK':
-            cursor.execute("SELECT ilink FROM links")
-            dblinks = cursor.fetchall()
-            return flask.render_template('index.html', avgt=sum(avg_time) / len(avg_time), dblen=len(list(set(dblinks))))
+            return flask.render_template('index.html', avgt=sum(avg_time) / len(avg_time), dblen=dblinks)
     elif flask.request.method == 'GET':
-        cursor.execute("SELECT ilink FROM links")
-        dblinks = cursor.fetchall()
-        return flask.render_template('index.html', avgt=sum(avg_time) / len(avg_time), dblen=len(list(set(dblinks))))
+        return flask.render_template('index.html', avgt=sum(avg_time) / len(avg_time), dblen=dblinks)
 
 if __name__ == '__main__':
     app.run('127.0.0.1', debug=True)
