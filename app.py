@@ -51,9 +51,13 @@ def main():
         elif flask.request.form.get('credits') == 'CREDITS':
             return flask.render_template('credits.html')
         elif flask.request.form.get('back') == 'BACK':
-            return flask.render_template('index.html', avgt=sum(avg_time) / len(avg_time))
+            cursor.execute("SELECT ilink FROM links")
+            dblinks = cursor.fetchall()
+            return flask.render_template('index.html', avgt=sum(avg_time) / len(avg_time), dblen=len(list(set(dblinks))))
     elif flask.request.method == 'GET':
-        return flask.render_template('index.html', avgt=sum(avg_time) / len(avg_time))
+        cursor.execute("SELECT ilink FROM links")
+        dblinks = cursor.fetchall()
+        return flask.render_template('index.html', avgt=sum(avg_time) / len(avg_time), dblen=len(list(set(dblinks))))
 
 if __name__ == '__main__':
     app.run('127.0.0.1', debug=True)
