@@ -28,6 +28,7 @@ def main():
                     time_before = int(time.time())
                     olinks = megadropzfucker.link(ilink)
                     time_after = int(time.time())
+                    timed = time_after - time_before
                     for link in olinks:
                         cursor.execute("INSERT OR IGNORE INTO links VALUES (?, ?)", (ilink, link))
                     db.commit()
