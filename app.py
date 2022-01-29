@@ -2,6 +2,7 @@ import flask
 import waitress
 import megadropzfucker
 import sqlite3
+import time
 
 app = flask.Flask(__name__)
 
@@ -24,7 +25,9 @@ def main():
                 dlinks = cursor.fetchall()
             if dlinks == []:
                 try:
+                    time_before = int(time.time())
                     olinks = megadropzfucker.link(ilink)
+                    time_after = int(time.time())
                     for link in olinks:
                         cursor.execute("INSERT OR IGNORE INTO links VALUES (?, ?)", (ilink, link))
                     db.commit()
