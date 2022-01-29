@@ -23,7 +23,10 @@ body {
 }
 
 .error{
-    margin: 40vh 0vh 10vh 2vh;
+    margin: 40vh auto;
+
+    width: 60vh;
+
 
 }
 .error h1{
@@ -39,6 +42,7 @@ body {
     background-size: 400% 400%;
     filter: drop-shadow(5px 5px 2px black);
 
+
 }
 .error p {
 
@@ -51,5 +55,21 @@ body {
     animation: gradient 30s ease infinite;
     background-size: 400% 400%;
     filter: drop-shadow(3px 3px 2px black);
+
+}
+.btn{
+
+
+    background: transparent;
+    border: transparent;
+
+}
+
+.btn p{
+    text-align: center;
+    padding-left: 5vh
+}
+.btn ion-icon{
+    font-size: 40px;
 
 }
